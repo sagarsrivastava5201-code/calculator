@@ -1,79 +1,442 @@
+//* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   HTML & BODY
+========================================= */
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #e4e4e4;
-      font-family: Arial, sans-serif;
-      background-image: url(cal.jpg);
-      background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #e4e4e4;
+    background-image: url("cal.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CALCULATOR
+========================================= */
+
+.calculator {
+    width: 500px;
+    max-width: 100%;
+
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(255, 255, 255, 0.15);
+
+    position: relative;
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =========================================
+   DISPLAY
+========================================= */
+
+.display {
+    width: 100%;
+
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 15px;
+
+    margin-bottom: 18px;
+
+    background: #222;
+
+    color: rgb(109, 202, 242);
+
+    font-size: 3em;
+    font-weight: 500;
+
+    text-align: right;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.5),
+        0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   BUTTON GRID
+========================================= */
+
+.buttons {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   ALL BUTTONS
+========================================= */
+
+.buttons button {
+    width: 100%;
+    min-height: 65px;
+
+    padding: 15px 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #eeeeee;
+
+    color: #222;
+
+    font-size: 1.2em;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================
+   NORMAL BUTTON HOVER
+========================================= */
+
+.buttons button:hover {
+    background: #dddddd;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   BUTTON CLICK
+========================================= */
+
+.buttons button:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================
+   OPERATOR
+========================================= */
+
+.buttons .operator {
+    background: #f9a825;
+
+    color: #ffffff;
+}
+
+.buttons .operator:hover {
+    background: #f57f17;
+}
+
+
+/* =========================================
+   EQUAL BUTTON
+========================================= */
+
+.buttons .equal {
+    grid-column: span 2;
+
+    background: #43a047;
+
+    color: #ffffff;
+}
+
+.buttons .equal:hover {
+    background: #388e3c;
+}
+
+
+/* =========================================
+   CLEAR BUTTON
+========================================= */
+
+.buttons .clear {
+    background: #e53935;
+
+    color: #ffffff;
+}
+
+.buttons .clear:hover {
+    background: #c62828;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
     }
 
     .calculator {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      width: 500px;
-      position: relative;
-      left: 400px;
+        width: 450px;
+
+        padding: 18px;
+
+        border-radius: 16px;
     }
 
     .display {
-      background: #222;
-      color: rgb(109, 202, 242);
-      font-size: 3em;
-      text-align: right;
-      padding: 10px;
-      border-radius: 14px;
-      margin-bottom: 15px;
-      overflow: hidden;
+        min-height: 80px;
+
+        font-size: 2.5em;
+
+        padding: 14px;
     }
 
     .buttons {
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+        gap: 9px;
     }
 
     .buttons button {
-      padding: 20px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 5px;
-      background: #eee;
-      cursor: pointer;
-      transition: background 0.3s;
+        min-height: 60px;
+
+        padding: 16px 8px;
+
+        font-size: 1.1em;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
+        min-height: 100vh;
+
+        padding: 15px;
+
+        background-size: cover;
+        background-position: center center;
+
+        align-items: center;
     }
 
-    .buttons button:hover {
-      background: #ddd;
+    .calculator {
+        width: 100%;
+        max-width: 430px;
+
+        padding: 15px;
+
+        border-radius: 16px;
     }
 
-    .buttons .operator {
-      background: #f9a825;
-      color: #fff;
+    .display {
+        min-height: 75px;
+
+        font-size: 2.2em;
+
+        padding: 12px;
+
+        margin-bottom: 14px;
+
+        border-radius: 12px;
     }
 
-    .buttons .operator:hover {
-      background: #f57f17;
+    .buttons {
+        gap: 8px;
     }
 
-    .buttons .equal {
-      background: #43a047;
-      color: #fff;
-      grid-column: span 2;
+    .buttons button {
+        min-height: 58px;
+
+        padding: 15px 8px;
+
+        font-size: 1em;
+
+        border-radius: 8px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 10px;
+
+        background-size: cover;
+        background-position: center;
     }
 
-    .buttons .equal:hover {
-      background: #388e3c;
+    .calculator {
+        width: 100%;
+
+        padding: 12px;
+
+        border-radius: 14px;
     }
 
-    .buttons .clear {
-      background: #e53935;
-      color: #fff;
+    .display {
+        min-height: 65px;
+
+        font-size: 1.8em;
+
+        padding: 11px 10px;
+
+        margin-bottom: 11px;
+
+        border-radius: 10px;
     }
 
-    .buttons .clear:hover {
-      background: #c62828;
+    .buttons {
+        gap: 6px;
     }
+
+    .buttons button {
+        min-height: 54px;
+
+        padding: 14px 5px;
+
+        font-size: 0.95em;
+
+        border-radius: 7px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 330px) {
+
+    body {
+        padding: 7px;
+    }
+
+    .calculator {
+        padding: 10px;
+
+        border-radius: 12px;
+    }
+
+    .display {
+        min-height: 58px;
+
+        font-size: 1.6em;
+
+        padding: 10px 8px;
+    }
+
+    .buttons {
+        gap: 5px;
+    }
+
+    .buttons button {
+        min-height: 48px;
+
+        padding: 12px 4px;
+
+        font-size: 0.88em;
+    }
+}
+
+
+/* =========================================
+   LANDSCAPE MOBILE
+========================================= */
+
+@media (max-width: 768px) and (orientation: landscape) {
+
+    body {
+        min-height: 100vh;
+
+        padding: 15px;
+
+        align-items: center;
+    }
+
+    .calculator {
+        max-width: 500px;
+
+        padding: 12px;
+    }
+
+    .display {
+        min-height: 60px;
+
+        font-size: 2em;
+
+        padding: 10px;
+
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        gap: 6px;
+    }
+
+    .buttons button {
+        min-height: 45px;
+
+        padding: 10px;
+
+        font-size: 0.95em;
+    }
+}
